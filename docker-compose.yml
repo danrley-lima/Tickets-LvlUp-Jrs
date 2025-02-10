@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: vendas-ingresso-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: tickets
+      # MYSQL_USER: admin
+      # MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+      # - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
